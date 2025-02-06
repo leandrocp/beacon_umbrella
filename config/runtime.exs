@@ -14,12 +14,12 @@ if config_env() == :prod do
   # want to use a different value for prod and you most likely don't want
   # to check this value into version control, so we use an environment
   # variable instead.
-  secret_key_base =
-    System.get_env("SECRET_KEY_BASE") ||
-      raise """
-      environment variable SECRET_KEY_BASE is missing.
-      You can generate one by calling: mix phx.gen.secret
-      """
+  secret_key_base = "N9Xv+cD1PJUlZgqAOjOjt+60zUT4hBggNR6QIF9+i/w5b45vKBIp0EkR3tIV3+r1"
+  # System.get_env("SECRET_KEY_BASE") ||
+  #   raise """
+  #   environment variable SECRET_KEY_BASE is missing.
+  #   You can generate one by calling: mix phx.gen.secret
+  #   """
 
   config :cms_admin_web, CmsAdminWeb.Endpoint,
     http: [
@@ -35,7 +35,7 @@ if config_env() == :prod do
   # If you are doing OTP releases, you need to instruct Phoenix
   # to start each relevant endpoint:
   #
-  #     config :cms_admin_web, CmsAdminWeb.Endpoint, server: true
+  config :cms_admin_web, CmsAdminWeb.Endpoint, server: true
   #
   # Then you can assemble a release by calling `mix release`.
   # See `mix help release` for more information.
@@ -90,12 +90,12 @@ if config_env() == :prod do
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
 
-  database_url =
-    System.get_env("DATABASE_URL") ||
-      raise """
-      environment variable DATABASE_URL is missing.
-      For example: ecto://USER:PASS@HOST/DATABASE
-      """
+  database_url = "ecto://postgres:postgres@localhost/big_app"
+  # System.get_env("DATABASE_URL") ||
+  #   raise """
+  #   environment variable DATABASE_URL is missing.
+  #   For example: ecto://USER:PASS@HOST/DATABASE
+  #   """
 
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
 
@@ -112,12 +112,12 @@ if config_env() == :prod do
   # want to use a different value for prod and you most likely don't want
   # to check this value into version control, so we use an environment
   # variable instead.
-  secret_key_base =
-    System.get_env("SECRET_KEY_BASE") ||
-      raise """
-      environment variable SECRET_KEY_BASE is missing.
-      You can generate one by calling: mix phx.gen.secret
-      """
+  secret_key_base = "N9Xv+cD1PJUlZgqAOjOjt+60zUT4hBggNR6QIF9+i/w5b45vKBIp0EkR3tIV3+r1"
+  # System.get_env("SECRET_KEY_BASE") ||
+  #   raise """
+  #   environment variable SECRET_KEY_BASE is missing.
+  #   You can generate one by calling: mix phx.gen.secret
+  #   """
 
   config :big_app_web, BigAppWeb.Endpoint,
     http: [

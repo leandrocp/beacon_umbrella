@@ -7,7 +7,16 @@ defmodule BigApp.Umbrella.MixProject do
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      default_release: :cms_admin_web,
+      releases: [
+        web: [
+          applications: [big_app_web: :permanent]
+        ],
+        cms_admin_web: [
+          applications: [cms_admin_web: :permanent]
+        ]
+      ]
     ]
   end
 
