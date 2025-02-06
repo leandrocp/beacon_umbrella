@@ -56,7 +56,8 @@ defmodule CmsAdminWeb.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:igniter, "~> 0.5"}
     ]
   end
 
