@@ -58,6 +58,7 @@ defmodule CmsAdminWeb.MixProject do
       {:jason, "~> 1.2"},
       {:bandit, "~> 1.5"},
       {:igniter, "~> 0.5"},
+      {:dns_cluster, "~> 0.1"},
       {:beacon_live_admin, github: "BeaconCMS/beacon_live_admin"}
     ]
   end
