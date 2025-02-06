@@ -1,5 +1,12 @@
 import Config
 
+# We don't run a server during test. If one is required,
+# you can enable the server option below.
+config :cms_admin_web, CmsAdminWeb.Endpoint,
+  http: [ip: {127, 0, 0, 1}, port: 4002],
+  secret_key_base: "J4o9QQrZUMtBfRJc8obMkKaoTPXIba898qkBMpmaZfn/Ci/xCqW4fIAAhH+6G7Ns",
+  server: false
+
 # Configure your database
 #
 # The MIX_TEST_PARTITION environment variable can be used

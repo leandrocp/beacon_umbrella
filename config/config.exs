@@ -9,6 +9,43 @@
 # move said applications out of the umbrella.
 import Config
 
+config :cms_admin_web,
+  ecto_repos: [CmsAdminWeb.Repo],
+  generators: [context_app: false]
+
+# Configures the endpoint
+config :cms_admin_web, CmsAdminWeb.Endpoint,
+  url: [host: "localhost"],
+  adapter: Bandit.PhoenixAdapter,
+  render_errors: [
+    formats: [html: CmsAdminWeb.ErrorHTML, json: CmsAdminWeb.ErrorJSON],
+    layout: false
+  ],
+  pubsub_server: CmsAdminWeb.PubSub,
+  live_view: [signing_salt: "SKZPQrQq"]
+
+# Configure esbuild (the version is required)
+config :esbuild,
+  version: "0.17.11",
+  cms_admin_web: [
+    args:
+      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    cd: Path.expand("../apps/cms_admin_web/assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
+
+# Configure tailwind (the version is required)
+config :tailwind,
+  version: "3.4.3",
+  cms_admin_web: [
+    args: ~w(
+      --config=tailwind.config.js
+      --input=css/app.css
+      --output=../priv/static/assets/app.css
+    ),
+    cd: Path.expand("../apps/cms_admin_web/assets", __DIR__)
+  ]
+
 # Configure Mix tasks and generators
 config :big_app,
   ecto_repos: [BigApp.Repo]
